@@ -31,6 +31,7 @@ body {
     min-height: 100vh;
     font-family: Consolas, Arial, sans-serif;
     font-size: 1.6em;
+    color:white;
     line-height: 1.6;
     background-image: linear-gradient(to bottom, #000fff, #7159ff, #a591ff, #d3c8ff, #ffffff);
     display: flex;
@@ -95,12 +96,14 @@ button:hover{
 
 /* || Footer */
 footer {
+    color: var(--main-bg-color);
+    font-weight: bold;
     width: 90%;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top: 1px solid #000fff;
+    border-top: 1px solid var(--secondary-bg-color);
 }
 
 
