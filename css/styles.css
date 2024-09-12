@@ -1,0 +1,113 @@
+/* || Variables for common styles */
+:root {
+    --main-bg-color: rgb(44, 44, 253);
+    --secondary-bg-color: #ea00bf;
+    --text-color: white;
+    --font-size-large: 5rem;
+    --font-size-clock: 12vh;
+}
+
+/* || Font-face */
+@font-face {
+    font-family: 'digital-7';
+    src:
+        url('../fonts/digital_7/digital-7_mono-webfont.woff'),
+        url('../fonts/digital_7/digital-7_mono-webfont.woff2');
+}
+
+/* || Normalization */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* || General Styles */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Consolas, Arial, sans-serif;
+    font-size: 1.6em;
+    line-height: 1.6;
+    background-image: linear-gradient(to bottom, #000fff, #7159ff, #a591ff, #d3c8ff, #ffffff);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* || Header */
+header {
+    margin-top: 4rem;
+    text-align: center;
+    white-space: wrap;
+}
+
+header h1 {
+    color: var(--text-color);
+    font-size: var(--font-size-large);
+}
+
+/* || Clock Styles */
+.clock {
+    font-family: 'digital-7', Arial, sans-serif;
+    color: var(--text-color);
+    width: auto;
+    padding: 2rem;
+    background-color: var(--main-bg-color);
+    border-radius: 15px;
+    text-align: center;
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid var(--main-bg-color);
+}
+
+.clock span {
+    font-size: var(--font-size-clock);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* || Button Section */
+.buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    width: 7rem;
+    padding: 0.7rem;
+    border: 1px solid var(--main-bg-color);
+    border-radius: 10px;
+    background-color: #6652fd;
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+button:hover{
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--text-color);
+}
+
+/* || Footer */
+footer {
+    width: 90%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #000fff;
+}
+
+
+/* || Media queries */
+@media (min-width: 600px) {
+    footer{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
