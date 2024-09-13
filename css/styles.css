@@ -76,7 +76,8 @@ header h1 {
 .buttons {
     margin-top: 2rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 3rem;
     margin-bottom: 2rem;
 }
 
