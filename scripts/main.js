@@ -17,12 +17,12 @@ let interval ;
 function stopWatch(){
     if(timerNotRunning){
         counter()
-        startButton.textContent = "Stop"
+        startButton.textContent = "Pause"
         timerNotRunning = false
     } else{
         clearInterval(interval)
         timerNotRunning = true
-        startButton.textContent = "Start"
+        startButton.textContent = "Resume"
     }
 }
 
