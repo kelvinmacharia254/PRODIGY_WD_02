@@ -31,6 +31,7 @@ function resetStopWatch(){
     timerNotRunning = true
     startButton.textContent = "Start"
     displayCount.textContent = formatTime(0)
+    count = 0
 }
 
 const counter = () => {
