@@ -1,45 +1,50 @@
-// pages content
-const routesContent ={
-    "#home":
-        "<h3>Prodigy InfoTech Web Development Internship Task 01</h3><br>" +
-        "<p>Welcome to the homepage of Task O1<br>" +
-        "We shall create interactive navigation menu using HTML, CSS & JavaScript.<br>" +
-        "Please follow along, try navigating to other pages and try using the application on pc and small devices.</p>",
+// GUI elements
+const startButton= document.querySelector("#start")
+const lapButton= document.querySelector("#lap")
+const reset= document.querySelector("#reset")
 
-    "#about":
-        "<h3>How do we implement Task 01</h3><br>" +
-        "<p>The project involves creation of interactive navigation menu.<br>" +
-        "It should have a fixed position, change colour when menu items.<br>" +
-        "are hovered over and display consistently across all pages.<br></p>",
+const displayCount= document.querySelector("#display")
 
-    "#contacts":
-        "<h3>How to reach us</h3><br>" +
-        "<p>" +
-        "Name: Kelvin Macharia<br>" +
-        "mobile: +254 700 000 ...<br>" +
-        "Email: pilotkelvin@gmail.com<br>"
+function formatTime(time) {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time%3600) / 60);
+    const seconds = Math.floor(time % 60);
+
+    const formattedHours = String(hours).padStart(2, '0');
+   const formattedMinutes = String(minutes).padStart(2, '0');
+   const formattedSeconds = String(seconds).padStart(2, '0');
+
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
 
-// GUI elements
-const smMenuSideBar = document.querySelector(".sm-menu");
-const toggleButton = document.querySelector("#toggle-button");
-const closeSideBarButtons = document.querySelectorAll(".close-side-bar");
-const content = document.querySelector("#main-content");
+let count = 0
 
-// load homepage content on initial load
-window.addEventListener('load', () => {
-    const currentHash = window.location.hash = ('#home');
-    content.innerHTML = routesContent[currentHash];
+let timerNotRunning = true
+
+let interval ;
+
+const counter = () => {
+    interval = setInterval(() => {
+        count = count + 1
+        displayCount.textContent = `${formatTime(count)}`
+    }, 1000)
+}
+
+startButton.addEventListener("click",()=> {
+    if(timerNotRunning){
+        counter()
+        startButton.textContent = "Stop"
+        timerNotRunning = false
+    } else{
+        clearInterval(interval)
+        timerNotRunning = true
+        startButton.textContent = "Start"
+    }
 })
 
-// open sidebar nav menu
-toggleButton.addEventListener("click", () => smMenuSideBar.style.display = "flex");
-// close sider nav menu
-closeSideBarButtons.forEach((button)=>
-    button.addEventListener("click", () => smMenuSideBar.style.display = "none")
-)
-// implement SPA functionality
-window.addEventListener('hashchange', () => {
-    const currentHash = window.location.hash;
-    content.innerHTML = routesContent[currentHash];
+reset.addEventListener("click",()=>{
+    clearInterval(interval)
+    timerNotRunning = true
+    startButton.textContent = "Start"
+    displayCount.textContent = formatTime(0)
 })
