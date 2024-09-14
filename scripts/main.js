@@ -4,8 +4,8 @@ const lapButton= document.querySelector("#lap")
 const resetButton= document.querySelector("#reset")
 
 const displayCount= document.querySelector("#display")
-
-
+const lapTable = document.querySelector("table")
+const lapTableBody = document.querySelector("table").getElementsByTagName('tbody')[0]
 // global vars
 let count = 0
 
@@ -53,6 +53,22 @@ function formatTime(time) {
     return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
 
+function lapFunction() {
+//     insert row
+    const newRow = lapTableBody.insertRow()
+
+//     insert cells
+    const lapNo = newRow.insertCell(0)
+    const lapTime = newRow.insertCell(1)
+
+//     insert data to cells
+    lapNo.textContent = "1"
+    lapTime.textContent = "5 secs"
+
+}
+
 startButton.addEventListener("click",stopWatch)
 
 resetButton.addEventListener("click",resetStopWatch)
+
+lapButton.addEventListener("click",lapFunction)
