@@ -74,6 +74,7 @@ main{
 /* || Clock Styles */
 .clock {
     font-family: 'digital-7', Arial, sans-serif;
+    font-size: 2rem;
     color: var(--text-color);
     width: auto;
     padding: 2rem;
