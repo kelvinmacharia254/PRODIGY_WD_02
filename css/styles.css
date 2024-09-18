@@ -1,7 +1,7 @@
 /* || Variables for common styles */
 :root {
-    --main-bg-color: rgb(44, 44, 253);
-    --secondary-bg-color: #ea00bf;
+    --main-bg-color: rgb(19, 42, 61);
+    --secondary-bg-color: #4839c4;
     --text-color: white;
     --font-size-large: 5rem;
     --font-size-clock: 12vh;
@@ -28,12 +28,11 @@ html {
 }
 
 body {
-    min-height: 100vh;
     font-family: Consolas, Arial, sans-serif;
     font-size: 1.6em;
     color:white;
     line-height: 1.6;
-    background-image: linear-gradient(to bottom, #000fff, #7159ff, #a591ff, #d3c8ff, #ffffff);
+    background-color: var(--main-bg-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -45,19 +44,30 @@ header {
     margin-top: 4rem;
     text-align: center;
     white-space: wrap;
+    margin-bottom: 2rem;
 }
 
 header h1 {
     color: var(--text-color);
     font-size: var(--font-size-large);
+    margin-bottom: 2rem;
 }
-/* || main*/
-main{
+/* || Main & Footer wrapper */
+#main-footer-div{
     display: flex;
     flex-direction: column;
-    margin-left: 1rem;
-    margin-right:1rem;
-    margin-bottom: 2rem;
+    align-items: center;
+    /*min-height: ; !* set with Javascript*!*/
+    width: 100%;
+}
+
+/* || main*/
+main{
+    flex: 1;
+    display: flex; /* Make the item itself a flex container */
+    flex-direction: column;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
 }
 
 /* || Clock Styles */
@@ -66,7 +76,7 @@ main{
     color: var(--text-color);
     width: auto;
     padding: 2rem;
-    background-color: var(--main-bg-color);
+    background-color: #6552fb;
     border-radius: 15px;
     text-align: center;
     overflow: hidden;
@@ -94,7 +104,7 @@ button {
     padding: 0.7rem;
     border: 1px solid var(--main-bg-color);
     border-radius: 10px;
-    background-color: #6652fd;
+    background-color: #4839c5;
     color: var(--text-color);
     font-size: 1.5rem;
 }
@@ -104,28 +114,24 @@ button:hover{
     border: 1px solid var(--text-color);
 }
 
-/* || general table styling */
-table{
-    table-layout: fixed;
-    /*width: 100%;*/
-    border-collapse: collapse;
-    border: 1px solid #000fff;
+#laps{
+    position: absolute;
+    top:15rem;
+    left:2rem;
+    max-height: 50vh;
+    overflow: auto;
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    /*border: 1px solid white;*/
+    background-color: rgba(0, 0, 0, 1);
 }
 
-/* || */
-th,td{
-    letter-spacing: 1px;
-    padding: 0.2rem;
-    border: 1px solid #000fff;
+.hideLaps{
+    display: none;
 }
 
-/* || */
-tbody td{
-    text-align: center;
-}
 /* || Footer */
 footer {
-    color: var(--main-bg-color);
     font-weight: bold;
     width: 90%;
     margin-bottom: 2rem;
