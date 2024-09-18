@@ -104,3 +104,5 @@ resetButton.addEventListener("click",()=>modal.showModal())
 
 yesModalButton.addEventListener("click", confirmReset)
 
+
+cancelModalButton.addEventListener("click", confirmReset)
