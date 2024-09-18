@@ -140,7 +140,7 @@ footer {
     font-weight: bold;
     width: 90%;
     margin-bottom: 2rem;
-    margin-top: 2rem;
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
