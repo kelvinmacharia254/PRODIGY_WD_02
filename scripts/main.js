@@ -72,7 +72,7 @@ function laps(){
         lapsDisplay.classList.remove("hideLaps");
         const para = document.createElement("p");
         lapsTracker = lapsTracker + 1
-        para.textContent = `${lapsTracker}.  ${formatTime(count)}`;
+        para.textContent = `#${lapsTracker}.  ${formatTime(count)}`;
         lapsDisplay.appendChild(para);
     }
 }
