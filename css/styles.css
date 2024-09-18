@@ -135,6 +135,27 @@ button:disabled{
     display: none;
 }
 
+dialog{
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+}
+
+dialog button#yes{
+    margin-bottom:1rem;
+}
+
+
+::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
 /* || Footer */
 footer {
     font-weight: bold;

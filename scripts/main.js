@@ -5,6 +5,13 @@ const resetButton= document.querySelector("#reset")
 
 const displayCount= document.querySelector("#display")
 const lapsDisplay = document.querySelector("#laps")
+const modal = document.querySelector('dialog')
+const yesModalButton = document.querySelector('dialog button#yes')
+const cancelModalButton = document.querySelector('dialog button#cancel')
+
+console.log(yesModalButton)
+console.log(cancelModalButton)
+
 
 // global vars
 let count = 0
@@ -19,6 +26,16 @@ let lapsTracker = 0;
 lapButton.disabled = true;
 resetButton.disabled = true;
 
+
+// Counter
+const counter = () => {
+    interval = setInterval(() => {
+        count = count + 1
+        displayCount.textContent = `${formatTime(count)}`
+    }, 1000)
+}
+
+//  start or pause
 function stopWatch(){
     if(timerNotRunning){
         counter()
@@ -34,6 +51,7 @@ function stopWatch(){
     }
 }
 
+// reset
 function resetStopWatch(){
     clearInterval(interval)
     timerNotRunning = true
@@ -45,13 +63,6 @@ function resetStopWatch(){
     lapsDisplay.innerHTML = ""
     lapButton.disabled = true
     resetButton.disabled = true;
-}
-
-const counter = () => {
-    interval = setInterval(() => {
-        count = count + 1
-        displayCount.textContent = `${formatTime(count)}`
-    }, 1000)
 }
 
 function formatTime(time) {
@@ -66,7 +77,7 @@ function formatTime(time) {
     return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
 
-
+// record laps
 function laps(){
     if (!timerNotRunning) {
         lapsDisplay.classList.remove("hideLaps");
@@ -77,9 +88,19 @@ function laps(){
     }
 }
 
+function confirmReset(e){
+    console.log(e.target.value)
+    if(e.target.value == 'yes'){
+        resetStopWatch()
+    }
+    modal.close()
+}
+
 
 startButton.addEventListener("click",stopWatch)
 
-resetButton.addEventListener("click",resetStopWatch)
-
 lapButton.addEventListener("click",laps)
+resetButton.addEventListener("click",()=>modal.showModal())
+
+yesModalButton.addEventListener("click", confirmReset)
+
