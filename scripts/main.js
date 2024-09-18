@@ -1,7 +1,4 @@
 // GUI elements
-const header = document.querySelector('header');
-const mainDiv = document.querySelector('#main-footer-div');
-const root = document.querySelector('html');
 const startButton= document.querySelector("#start")
 const lapButton= document.querySelector("#lap")
 const resetButton= document.querySelector("#reset")
@@ -16,34 +13,24 @@ let timerNotRunning = true
 
 let interval ;
 
-let lapsRecords ={}
-
 let lapsTracker = 0;
 
-// calculate dimensions & offsets
-const headerHeight = header.offsetHeight;
-console.log(`headerHeight: ${headerHeight}`)
-const rootFontSize = parseFloat(window.getComputedStyle(root).fontSize);
-console.log(`rootFontSize: ${rootFontSize}`)
-const viewPortHeight = window.innerHeight
-console.log(`viewPortHeight: ${viewPortHeight}`)
-// const mainDivHeight = viewPortHeight - (headerHeight + (2*rootFontSize))
-const mainDivHeight = viewPortHeight - headerHeight
-
-mainDiv.style.minHeight = `${mainDivHeight}px`
-
-console.log(`mainDivHeight: ${mainDivHeight}`)
-
+// initial state of GUI elements
+lapButton.disabled = true;
+resetButton.disabled = true;
 
 function stopWatch(){
     if(timerNotRunning){
         counter()
         startButton.textContent = "Pause"
         timerNotRunning = false
+        lapButton.disabled = false
+        resetButton.disabled = false
     } else{
         clearInterval(interval)
         timerNotRunning = true
         startButton.textContent = "Resume"
+        lapButton.disabled = true
     }
 }
 
@@ -53,8 +40,11 @@ function resetStopWatch(){
     startButton.textContent = "Start"
     displayCount.textContent = formatTime(0)
     count = 0
+    lapsTracker = 0;
     lapsDisplay.classList.add("hideLaps")
     lapsDisplay.innerHTML = ""
+    lapButton.disabled = true
+    resetButton.disabled = true;
 }
 
 const counter = () => {

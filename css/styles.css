@@ -57,8 +57,9 @@ header h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*min-height: ; !* set with Javascript*!*/
+    min-height: 80vh; /* can be set dynamically with Javascript*/
     width: 100%;
+
 }
 
 /* || main*/
@@ -114,16 +115,19 @@ button:hover{
     border: 1px solid var(--text-color);
 }
 
+button:disabled{
+    background-color: #838282;
+    color: #d3d1d1;
+    outline: none;
+    border: unset;
+}
+
 #laps{
-    position: absolute;
-    top:15rem;
-    left:2rem;
-    max-height: 50vh;
-    overflow: auto;
     padding: 1rem 3rem;
     border-radius: 10px;
-    /*border: 1px solid white;*/
-    background-color: rgba(0, 0, 0, 1);
+    /*background-color: rgba(0, 0, 0, 1);*/
+    margin-bottom: 2rem;
+    flex:1;
 }
 
 .hideLaps{
